@@ -8,6 +8,8 @@ import (
 func main() {
 
 	urls := []string{
+		"https://www.spotify.com",
+		"https://globoesporte.globo.com",
 		"https://www.google.com.br",
 		"https://www.facebook.com",
 		"https://www.microsoft.com",
@@ -20,7 +22,7 @@ func main() {
 		go checkStatus(url, c)
 	}
 
-	for i := 0; i < len(urls); i++ {
+	for range urls {
 		fmt.Println(<-c)
 	}
 
@@ -28,7 +30,7 @@ func main() {
 
 }
 
-func checkStatus(url string, c chan string) {
+func checkStatus(url string, c chan<- string) {
 
 	resp, err := http.Get(url)
 
@@ -40,12 +42,7 @@ func checkStatus(url string, c chan string) {
 
 	defer resp.Body.Close()
 
-	c <- resp.Status
+	u := fmt.Sprintf("\nURL: %s - Status: %s", url, resp.Status)
+	c <- u
 
-}
-
-func printStatus(in <-chan string) {
-	for x := range in {
-		fmt.Println(x)
-	}
 }
