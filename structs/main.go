@@ -22,14 +22,14 @@ func main() {
 		age:       31,
 	}
 
-	p.changeName("Pedro", "Alvex")
-	p.changeName("Cyro", "Dubeux")
-
+	fmt.Printf("%+v\n", p)
+	fmt.Println("Changing name and lastname...")
+	p.changeName("Paul", "Jones")
 	fmt.Printf("%+v\n", p)
 
 }
 
 func (p *person) changeName(f, l string) {
-	(*p).firstName = f
-	(*p).lastName = l
+	p.firstName = f
+	p.lastName = l
 }

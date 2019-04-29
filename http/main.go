@@ -5,11 +5,16 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
 func main() {
 
-	resp, err := http.Get("https://www.google.com")
+	httpClient := &http.Client{
+		Timeout: time.Second * 10,
+	}
+
+	resp, err := httpClient.Get("https://feelthemovies.com.br/v1/recommendations")
 
 	if err != nil {
 		log.Print(err)
