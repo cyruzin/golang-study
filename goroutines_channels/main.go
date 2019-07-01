@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -23,7 +24,7 @@ func main() {
 	}
 
 	for range urls {
-		fmt.Println(<-c)
+		log.Println(<-c)
 	}
 
 	close(c)

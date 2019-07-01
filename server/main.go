@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -21,7 +20,7 @@ func main() {
 		IdleTimeout:       120 * time.Second,
 	}
 
-	fmt.Println("Listening on port: 8080")
+	log.Println("Listening on port: 8080")
 
 	if err := srv.ListenAndServe(); err != nil {
 		log.Fatal(err)
