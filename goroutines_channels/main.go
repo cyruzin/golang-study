@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 )
 
 func main() {
-
 	urls := []string{
+		"https://feelthemovies.com.br/healthcheck",
 		"https://www.spotify.com",
 		"https://globoesporte.globo.com",
 		"https://www.google.com.br",
@@ -24,15 +23,13 @@ func main() {
 	}
 
 	for range urls {
-		log.Println(<-c)
+		fmt.Println(<-c)
 	}
 
 	close(c)
-
 }
 
 func checkStatus(url string, c chan<- string) {
-
 	resp, err := http.Get(url)
 
 	if err != nil {
@@ -43,7 +40,6 @@ func checkStatus(url string, c chan<- string) {
 
 	defer resp.Body.Close()
 
-	u := fmt.Sprintf("\nURL: %s - Status: %s", url, resp.Status)
+	u := fmt.Sprintf("URL: %s - Status: %s", url, resp.Status)
 	c <- u
-
 }
