@@ -1,0 +1,11 @@
+
+version: "3.3"
+
+services: 
+    
+  go-docker:
+    build:
+      context: .
+    container_name: go-docker
+    ports:
+      - "8000:8000"
