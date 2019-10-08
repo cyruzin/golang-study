@@ -16,8 +16,7 @@ func main() {
 		Addr:              ":8080",
 		ReadTimeout:       10 * time.Second,
 		ReadHeaderTimeout: 10 * time.Second,
-		WriteTimeout:      30 * time.Second,
-		IdleTimeout:       120 * time.Second,
+		WriteTimeout:      10 * time.Second,
 	}
 
 	log.Println("Listening on port: 8080")
