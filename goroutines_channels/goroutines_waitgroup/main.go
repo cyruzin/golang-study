@@ -1,5 +1,5 @@
-// Waitgropups are userd to wait all the goroutines that are lunched to finish, 
-// it notifies that the worker has completed the given task
+// Waitgropups are used to wait all the goroutines that are lunched to finish,
+// It notifies that the worker has completed the given task
 
 package main
 
