@@ -30,7 +30,7 @@ func averageAge(out chan<- int, in <-chan int, lenght int) {
 	var average int
 
 	for v := range in {
-		average = v / lenght
+		average = v / length
 		out <- average
 	}
 
