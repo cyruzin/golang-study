@@ -26,14 +26,14 @@ func sumAge(out chan<- int, age []int) {
 	close(out)
 }
 
-func averageAge(out chan<- int, in <-chan int, lenght int) {
+func averageAge(out chan<- int, in <-chan int, length int) {
 	var average int
 
 	for v := range in {
 		average = v / length
 	}
 
-        out <- average
+	out <- average
 
 	close(out)
 }

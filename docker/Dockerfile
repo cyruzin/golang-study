@@ -1,4 +1,4 @@
-FROM golang:1.13.1 as build-stage
+FROM golang:1.19.2 as build
 
 WORKDIR /go/src/github.com/cyruzin/golang-study/docker
 
@@ -12,7 +12,7 @@ FROM alpine:latest
 
 RUN apk add ca-certificates
 
-COPY --from=build-stage /go/bin/docker .
+COPY --from=build /go/bin/docker .
 
 EXPOSE 8000
 
