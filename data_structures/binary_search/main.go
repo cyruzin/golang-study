@@ -39,7 +39,7 @@ func main() {
 
 	position := binarySearch(632, items)
 
-	if position > 0 {
+	if position > -1 {
 		fmt.Println("Key found at position:", position)
 	} else {
 		fmt.Println("Key not found!")
